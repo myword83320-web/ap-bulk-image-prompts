@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body{width:370px;font-family:Arial,sans-serif;padding:12px;margin:0}
+  .head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .head img{width:28px;height:28px}
+  h3{margin:0}
+  textarea{width:100%;height:170px;box-sizing:border-box;padding:8px;font-size:13px}
+  label.f{display:block;margin-top:8px;font-size:12px;color:#444}
+  input[type=text],input[type=number]{width:100%;box-sizing:border-box;padding:6px;font-size:13px}
+  .chk{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12px;color:#222}
+  .row{display:flex;gap:8px;margin-top:10px}
+  button{flex:1;padding:9px;border:0;border-radius:6px;font-size:13px;cursor:pointer;color:#fff}
+  #start{background:#10a37f;font-size:14px} #stop{background:#d9534f;font-size:14px}
+  #zipRecent{background:#2563eb} #zipAll{background:#6b7280}
+  select{width:100%;box-sizing:border-box;padding:6px;font-size:13px}
+  .cnt-row{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+  #count{font-size:12px;font-weight:bold;color:#10a37f}
+  #clear{flex:none;padding:5px 10px;font-size:12px;background:#9ca3af}
+  #preview{font-size:11px;color:#666;margin-top:2px;max-height:48px;overflow:hidden}
+  hr{border:0;border-top:1px solid #ddd;margin:12px 0 4px}
+  .sec{font-size:12px;color:#444;margin-top:6px;font-weight:bold}
+  #status{margin-top:10px;font-size:12px;color:#222;min-height:16px}
+</style>
+</head>
+<body>
+  <div class="head"><img src="icons/icon48.png"><h3>AP Bulk Image Prompts</h3></div>
+  <textarea id="prompts" placeholder="Prompt gulo ekhane paste koro..."></textarea>
+  <label class="f">Prompt kibhabe alada hobe
+    <select id="mode">
+      <option value="auto">Auto (recommended)</option>
+      <option value="heading">"Prompt 1:", "Prompt 2:" heading diye</option>
+      <option value="blank">Khali line (blank line) diye</option>
+      <option value="line">Prottek line e ekta prompt</option>
+    </select>
+  </label>
+  <div class="cnt-row"><div id="count">0 ta prompt</div><button id="clear" type="button">Clear prompts</button></div>
+  <div id="preview"></div>
+  <label class="f">Prompt er age ja jodabe (optional)
+    <input type="text" id="prefix" value="Generate an image: ">
+  </label>
+  <label class="f">Prottek image shesh hobar por extra wait (second)
+    <input type="number" id="delay" value="3" min="0">
+  </label>
+  <label class="chk"><input type="checkbox" id="autozip"> Shob prompt sesh hole auto ZIP download koro</label>
+  <div class="row">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </div>
+
+  <hr>
+  <div class="sec">Image ZIP download</div>
+  <div class="row">
+    <button id="zipRecent">Recent run er image</button>
+  </div>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
